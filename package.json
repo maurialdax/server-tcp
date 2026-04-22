@@ -1,0 +1,27 @@
+{
+  "name": "lab-1",
+  "version": "1.0.0",
+  "description": "Servidor TCP simple hecho con Node.js que repite todo lo que el cliente le manda.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maurialdax/server-tcp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maurialdax/server-tcp/issues"
+  },
+  "homepage": "https://github.com/maurialdax/server-tcp#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "jsonwebtoken": "^9.0.3",
+    "winston": "^3.19.0"
+  }
+}

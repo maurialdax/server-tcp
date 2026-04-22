@@ -2,7 +2,7 @@
 // Importamos el módulo nativo 'net' de Node.js.
 // Este módulo provee una API para crear servidores y clientes TCP/IPC.
 // No requiere instalación externa (viene incluido en Node.js).
-const net = require('net');
+import net from 'node:net';
 
 /**
  * net.createServer([options], [connectionListener])
@@ -29,7 +29,7 @@ const server = net.createServer((socket) => {
   // a UTF-8.
   socket.on('data', (data) => {
     const mensaje = data.toString().trim(); // eliminamos saltos de línea/espacios
-    console.log(`[DATOS RECIBIDOS] ${socket.remoteAddress}:${socket.remotePort} → "${mensaje}"`);
+    console.log(`[DATOS RECIBIDOS] ${socket.remoteAddress}:${socket.remotePort}: "${mensaje}"`);
 
     /**
      * socket.write(data[, encoding][, callback])
@@ -99,14 +99,5 @@ server.listen(3000, () => {
    * reales en los que el servidor quedó escuchando.
    */
   const info = server.address();
-  console.log('╔══════════════════════════════════════════════════╗');
-  console.log('║        IFTS 16 - Echo Server TCP activo          ║');
-  console.log('╠══════════════════════════════════════════════════╣');
-  console.log(`║  Dirección : ${info.address.padEnd(35)}║`);
-  console.log(`║  Puerto    : ${String(info.port).padEnd(35)}║`);
-  console.log(`║  Familia   : ${info.family.padEnd(35)}║`);
-  console.log('╠══════════════════════════════════════════════════╣');
-  console.log('║  Para conectar:  nc localhost 3000               ║');
-  console.log('║  Para capturar:  sudo tcpdump -i lo -n port 3000 ║');
-  console.log('╚══════════════════════════════════════════════════╝');
+  console.log(`Echo server TCP escuchando en ${info.address}:${info.port}`);
 });
